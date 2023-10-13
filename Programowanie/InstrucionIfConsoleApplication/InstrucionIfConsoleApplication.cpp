@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define _USE_MATH_DEFINES
+#include <iostream>
 using namespace std;
 
 /*
@@ -184,7 +185,7 @@ void task8()
 
     cout << "Podaj liczbe \n";
     cin >> Number;
-    if (Number => 1 && Number < 15)
+    if (Number >= 1 && Number < 15)
     {
         cout << "Podana liczba jest z przedziału <1, 15)";
     }
@@ -236,6 +237,124 @@ void task10()
         cout << "Z podanych długości boków nie można zrobić trójkąt";
     }
 }
+//11. Napisz program, który będzie działać jako prosty kalkulator matematyczny, umożliwiając użytkownikowi wybór operacji(dodawanie, odejmowanie, mnożenie, dzielenie) i wprowadzanie liczb do obliczeń.
+void task11()
+{
+    int operation;
+    double FirstNumber, SecondNumber;
+
+    cout << "Podaj operacje do wykonania: 1. dodawanie, 2. odejmowanie, 3. mnożenie, 4.dzielenie \n";
+    cin >> operation;
+
+    if (operation == 1)
+    {
+        cout << "Dodawnie liczb wynosi: " << (FirstNumber + SecondNumber);
+    }
+    else if (operation == 2)
+    {
+        cout << "Odejmowanie liczb wynosi: " << (FirstNumber + SecondNumber);
+    }
+    else if (operation == 3)
+    {
+        cout << "Mnożenie liczb wynosi: " << (FirstNumber + SecondNumber);
+    }
+    else if (operation == 4)
+    {
+        cout << "Dzielenie liczb wynosi: " << (FirstNumber + SecondNumber);
+    }
+}
+// 12. Napisz program, który wczyta numer miesiąca i wyświetli jego słowny odpowiednik.
+void task12()
+{
+    int month;
+
+    cout << "Podaj number miesiąca \n";
+    cin >> month;
+    switch (month)
+    {
+    case 1:
+        cout << "Styczeń";
+        break;
+    case 2:
+        cout << "Luty";
+            break;
+    case 3:
+        cout << "Marzec";
+            break;
+    case 4:
+        cout << "Kwiecień";
+            break;
+    case 5:
+        cout << "Maj";
+            break;
+    case 6:
+        cout << "Czerwiec";
+            break;
+    case 7:
+        cout << "Lipiec";
+            break;
+    case 8:
+        cout << "Sierpień";
+            break;  
+    case 9:
+        cout << "Wrzesień";
+        break;
+     case 10:
+        cout << "Październik";
+        break;
+     case 11:
+        cout << "Listopad";
+        break;
+     case 12:
+        cout << "Grudzień";
+        break;
+     default: 
+         cout << "Nie ma takiego miesiąca.";
+
+    }
+}
+/*13. Napisz program, który na podstawie współczynników równania kwadratowego(a, b, c) sprawdzi, czy to równanie ma rozwiązania rzeczywiste, i jeśli tak, to je obliczy.*/
+void task13()
+{
+    double a, b, c;
+
+    cout << "Podaj a \n";
+    cin >> a;
+
+    cout << "Podaj b \n";
+    cin >> b;
+
+    cout << "Podaj c \n";
+    cin >> c;
+
+    if (a != 0)
+    {
+        double delta = pow(b, 2) - 4 + (a + c);
+
+        if (delta > 0)
+        {
+            double mz2 = (-b - sqrt(delta)) / 2 * a;
+            double mz1 = (-b + sqrt(delta)) / 2 * a;
+            cout << "Są 2 miejsca zerowe" << mz1 << "i " << mz2;
+        }
+        else if (delta == 0)
+        {
+            
+            double mz3 = (-b / 2 * a);
+            cout << "Miejsce zerowe wynosi: " << mz3;
+            
+        }
+        else if (delta < 0)
+        {
+            cout << "Równanie kwadratowe nie posiada rozwiązań";
+        }
+ 
+    }
+    else
+    {
+        cout << "To nie jest równanie kwadratowe";
+    }
+}
 int main()
 {
     setlocale(LC_CTYPE, "polish");
@@ -250,4 +369,9 @@ int main()
     //task8();
     //task9();
     //task10();
+    //task11();
+    //task12();
+    //task13();
 }
+
+
