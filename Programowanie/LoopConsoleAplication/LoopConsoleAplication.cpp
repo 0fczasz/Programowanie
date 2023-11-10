@@ -111,6 +111,98 @@ void task9()
 	}
 
 }
+void task10()
+{
+
+	int numberOfLines = 5;
+
+	//pierwsza
+	for (int lineNumber = 0; lineNumber < numberOfLines; lineNumber++)
+	{
+		for (int numberOfStar = 0; numberOfStar < numberOfLines - lineNumber; numberOfStar++)
+		{
+			cout << "*";
+		}
+		cout << "\n";
+	}
+
+	for (int lineNumber = 0; lineNumber < numberOfLines; lineNumber++)
+	{
+		for (int numberOfStar = 0; numberOfStar <= lineNumber; numberOfStar++)
+		{
+			cout << "*";
+		}
+		cout << "\n";
+	}
+
+	//druga
+	for (int lineNumber = 0; lineNumber < numberOfLines; lineNumber++)
+	{
+		for (int number = lineNumber + 5; number > lineNumber; number--)
+		{
+			cout << number;
+		}
+		cout << "\n";
+	}
+
+	//trzecia
+	for (int lineNumber = 0; lineNumber < numberOfLines; lineNumber++)
+	{
+		for (int number = 0; number < 6; number++)
+		{
+			cout << (number + lineNumber) % 2 + 1;
+		}
+		cout << "\n";
+	}
+
+	//czwarta
+	for (int lineNumber = 0; lineNumber < numberOfLines; lineNumber++)
+	{
+		for (int number = lineNumber + 1; number <= lineNumber + 3; number++)
+		{
+			for (int i = 0; i < number; i++)
+				cout << number;
+		}
+		cout << "\n";
+	}
+}
+	
+void task11()
+{
+	int n;
+	cout << "Podaj wartoœæ n: ";
+	cin >> n;
+
+	double sum = 0.0;
+	for (int i = 1; i <= n; ++i) {
+		sum += 1.0 / (i * i);
+	}
+
+	double piApproximation = sqrt(6 * sum);
+	cout << "Przybli¿enie liczby pi: " << piApproximation << endl;
+	cout << "Wartoœæ liczby pi z Math.PI: " << M_PI << endl;
+}
+void task12()
+{
+	int liczba;
+
+
+	cout << "Podaj liczbe: ";
+	cin >> liczba;
+
+
+	int suma = 0;
+
+
+	while (liczba != 0) {
+		suma += liczba % 10;
+		liczba /= 10;       
+
+	// Wyœwietlenie wyniku
+	cout << "Suma cyfr podanej liczby: " << suma << endl;
+
+}
+
 int main()
 {
 	//task1();
@@ -122,5 +214,6 @@ int main()
 	//task7();
 	//task8();
 	//task9();
-	task10();
+	//task10();
+	//task11();
 }
