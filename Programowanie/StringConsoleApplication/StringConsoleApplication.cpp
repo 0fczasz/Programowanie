@@ -46,8 +46,8 @@ void task2()
 	cout << "haslo zostalo stworzone, podaj haslo ponownie by sie zalogowac \n";
 	
 	do {
-		cin >> enterPassword;
-
+		cin >> enterPassword
+			;
 		if (password == enterPassword)
 		{
 			cout << "haslo zostalo podane poprawnie";
@@ -59,11 +59,99 @@ void task2()
 	} while (password != enterPassword);
 
 }
+ //Napisz program, który pobiera od u¿ytkownika ci¹g znaków i wyœwietla liczbê samog³osek i spó³g³osek w tym ci¹gu.
+void task3()
+{
+
+	string textFromUser;
+	int vovel = 0;
+	int consonant = 0;
+	int marks = 0;
 
 
+	cout << "Podaj tekst do sprawdznia";
+	cin >> textFromUser;
+
+	for (int i = 0; i < textFromUser.length(); i++)
+	{
+		if (textFromUser[i] == 'a' 
+			|| textFromUser[i] == 'A'
+			|| textFromUser[i] == 'e'
+			|| textFromUser[i] == 'E'
+			|| textFromUser[i] == 'i'
+			|| textFromUser[i] == 'I'
+			|| textFromUser[i] == 'o'
+			|| textFromUser[i] == 'O'
+			|| textFromUser[i] == 'u'
+			|| textFromUser[i] == 'U'
+			|| textFromUser[i] == 'y'
+			|| textFromUser[i] == 'Y')
+		{
+			vovel++;
+		}
+
+		else if (textFromUser[i] == 'b' 
+			|| textFromUser[i] == 'B'
+			|| textFromUser[i] == 'c'
+			|| textFromUser[i] == 'C'
+			|| textFromUser[i] == 'd'
+			|| textFromUser[i] == 'D'
+			|| textFromUser[i] == 'f'
+			|| textFromUser[i] == 'F'
+			|| textFromUser[i] == 'g'
+			|| textFromUser[i] == 'G'
+			|| textFromUser[i] == 'h'
+			|| textFromUser[i] == 'H'
+			|| textFromUser[i] == 'j'
+			|| textFromUser[i] == 'J'
+			|| textFromUser[i] == 'k'
+			|| textFromUser[i] == 'K'
+			|| textFromUser[i] == 'l'
+			|| textFromUser[i] == 'L'
+			|| textFromUser[i] == 'm'
+			|| textFromUser[i] == 'M'
+			|| textFromUser[i] == 'n'
+			|| textFromUser[i] == 'N'
+			|| textFromUser[i] == 'p'
+			|| textFromUser[i] == 'P'
+			|| textFromUser[i] == 'r'
+			|| textFromUser[i] == 'R'
+			|| textFromUser[i] == 's'
+			|| textFromUser[i] == 'S'
+			|| textFromUser[i] == 't'
+			|| textFromUser[i] == 'T'
+			|| textFromUser[i] == 'w'
+			|| textFromUser[i] == 'W'
+			|| textFromUser[i] == 'z'
+			|| textFromUser[i] == 'Z')
+		{
+			consonant++;
+		}
+		else
+		{
+			marks++;
+		}
+
+	}
+
+	cout << "w tym tekscie jest: \n" << vovel << ": samog³osek\n" << consonant << ": spó³g³osek\n" << marks << ": znaków specjanych\n";
+}
+
+//* Poproœ u¿ytkownika o wprowadzenie liczby ca³kowitej w systemie dziesiêtnym.Nastêpnie skonwertuj tê liczbê na system dwójkowy(binarny) i wyœwietl wynik.
+void task4()
+{
+	string numberFromUser;
+
+	cout << "Podaj liczbe";
+	cin >> numberFromUser;
+
+	
+
+}
 int main()
 {
 	//task1();
-	task2();
+	//task2();
+	//task3();
 }
 
