@@ -108,7 +108,28 @@ void task4()
         }
         cout << "liczba " << numberFromRange << "wystapila " << numberOfOccurences << "razy\n";
     }
+
+    //wersja2
+    int numberOfOccurences[UPPER_RANGE - LOWER_RANGE + 1];
+
+    for (int i = 0; i < UPPER_RANGE - LOWER_RANGE + 1; i++)
+    {
+        numberOfOccurences[i] = 0;
+    }
+
+    for (int j = 0; j < SIZE_OF_ARRAY; j++)
+    {
+        numberOfOccurences[numbers[j] - LOWER_RANGE]++;
+    }
+    for (int i = 0; i < UPPER_RANGE - LOWER_RANGE + 1; i++)
+    {
+        if (numberOfOccurences[i] != 0)
+        {
+            cout << "liczba " << i + LOWER_RANGE << "wystapila " << numberOfOccurences[i] << "razy \n";
+        }
+    }
 }
+
 int main()
 {
     //task1();
