@@ -106,7 +106,7 @@ void task4()
             if (numbers[j] == numberFromRange)
                 numberOfOccurences++;
         }
-        cout << "liczba " << numberFromRange << "wystapila " << numberOfOccurences << "razy\n";
+        cout << " liczba " << numberFromRange << " wystapila " << numberOfOccurences << " razy \n";
     }
 
     //wersja2
@@ -125,9 +125,51 @@ void task4()
     {
         if (numberOfOccurences[i] != 0)
         {
-            cout << "liczba " << i + LOWER_RANGE << "wystapila " << numberOfOccurences[i] << "razy \n";
+            cout << "liczba  " << i + LOWER_RANGE << " wystapila " << numberOfOccurences[i] << " razy \n";
         }
     }
+}
+void task5()
+{
+    const int UPPER_RANGE = 100;
+
+    //wersja 1
+    /*
+       bool isPrime = true;
+       for(int i = 2;  i <= sqrt(numberToCheck); i++)
+        {
+            if(numberToCheck % i == 0)
+            {
+            isPrime = false;
+            break;
+            }
+        }
+        if(isPrime)
+        cout << numberToCheck 
+    */
+    
+        //wersja2
+    bool primeNumbers[UPPER_RANGE + 1];
+    for (int i = 2; i < UPPER_RANGE + 1; i++)
+    {
+        primeNumbers[i] = true;
+    }
+    for (int i = 2; i < UPPER_RANGE + 1; i++)
+    {
+        if (primeNumbers[i])
+        {
+            for (int j = i + i; j < UPPER_RANGE + 1; j = j + i)
+            {
+                primeNumbers[j] = false;
+            }
+        }
+    }
+    for (int i = 2; i < UPPER_RANGE + 1; i++)
+    {
+        if (primeNumbers[i])
+            cout << i << ", ";
+    }
+    cout << "\n";
 }
 
 int main()
@@ -135,8 +177,8 @@ int main()
     //task1();
     //task2();
     //task3();
-    task4();
-
+    //task4();
+    task5();
 }
 
 
