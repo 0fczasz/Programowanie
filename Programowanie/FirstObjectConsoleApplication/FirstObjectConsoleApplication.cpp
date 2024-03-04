@@ -1,4 +1,15 @@
 ﻿﻿#include <iostream>
+using namespace std;
+
+/*
+Zdefiniuj klase opisującą prostokąt. Możliwości klasy:
+* konstruktory
+* metoda która zwórci obwód prostokąta
+* metoda która pole prostokąta
+* metodę która pokaże informacje o prostokącie.
+
+Napisz program który zaprezentuje możliwości obiektu na podstawie tej klasy.
+*/
 
 class Point
 {
@@ -27,6 +38,11 @@ public:
 		x = xx;
 		y = yy;
 		z = zz;
+	}
+
+	~Point()
+	{
+		std::cout << "Tera działa destruktor\n";
 	}
 
 	void SetX(int value)
@@ -59,15 +75,15 @@ public:
 
 int main()
 {
-	Point firstPoint;
-	//firstPoint.x = 3;
-	firstPoint.SetX(-3);
-	//firstPoint.y = 5;
-	//firstPoint.z = 8;
-	std::cout << "Odległość " << firstPoint.DistanceFromCenter() << "\n";
+	{
+		Point firstPoint;
+		//firstPoint.x = 3;
+		firstPoint.SetX(-3);
+		//firstPoint.y = 5;
+		//firstPoint.z = 8;
+		std::cout << "Odległość " << firstPoint.DistanceFromCenter() << "\n";
+	}
 
 	Point secondPiont(15);
 	std::cout << "Odległość " << secondPiont.DistanceFromCenter() << "\n";
-
-
 }
