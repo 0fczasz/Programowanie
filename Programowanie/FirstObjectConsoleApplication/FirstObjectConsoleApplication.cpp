@@ -5,7 +5,7 @@ class Point
 private:
 	int x;
 	int y;
-	int z;
+	int z;	
 
 public:
 	Point()
