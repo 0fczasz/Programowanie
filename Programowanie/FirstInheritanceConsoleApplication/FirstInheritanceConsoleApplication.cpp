@@ -1,27 +1,27 @@
-// FirstInheritanceConsoleApplication.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
 class C
 {
-    private;
+protected:
     int fieldA;
+
+public:
+    int GetFieldA()
+    {
+        return fieldA;
+    }
 };
 
-class A
+class A : public C
 {
 private:
-   // int fieldA;
+
 public:
     A()
     {
         fieldA = 5;
     }
-    /*int GetFieldA()
-    {
-        return fieldA;
-    }
-    */
+
     void ShowInfo()
     {
         std::cout << "Informacja na temat klasy A\n";
@@ -29,38 +29,38 @@ public:
     }
 };
 
-
-class B
+class B : public C
 {
 private:
-   // int fieldA;
+    //int fieldA;
     int fieldB;
+
 public:
     B()
     {
-       // fieldA = 5;
-        fieldB= 5;
-
+        fieldA = 5;
+        fieldB = 4;
     }
-    /*int GetfieldA()
+
+    /*int GetFieldA()
     {
         return fieldA;
-    }
-    */
-    int GetfieldB()
+    }*/
+
+    int GetFieldB()
     {
         return fieldB;
     }
 
     void ShowInfo()
     {
-        std::cout << "Informacja na temat klasy A\n";
+        std::cout << "Informacja na temat klasy B\n";
         std::cout << "Field A = " << fieldA << "\n";
         std::cout << "Field B = " << fieldB << "\n";
     }
 };
+
 int main()
 {
 
 }
-
