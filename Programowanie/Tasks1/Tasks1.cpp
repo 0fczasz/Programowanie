@@ -27,65 +27,127 @@ using namespace std;
 	class Sumator
 	{
 	private:
-		int number[3];
+		static const int SIZE_OF_ARRAY = 3;
+		int number[SIZE_OF_ARRAY];
 	public:
-		
-		Sumator(){
-		number[0] = 0;
-		number[1] = 0;
-		number[2] = 0;
-		};
-		Sumator(int secondNumber) {
-			number[0] = rand() % secondNumber + 1;
-			number[1] = rand() % secondNumber + 1;
-			number[2] = rand() % secondNumber + 1;
-		};
-		int Suma(int sum)
+		Sumator()
 		{
-			sum = number[0] + number[1] + number[2];
-		};
+			for (int i = 0; i < SIZE_OF_ARRAY; i++)
+			{
+				number[i] = 0;
+			}
+		}
+		Sumator(int numberGenerate)
+		{
+			srand(NULL);
+			for (int i = 0; i < SIZE_OF_ARRAY; i++)
+			{
+				number[i] = rand() % numberGenerate + 1;
+			}
+		}
+		int  Suma()
+		{
+			int sum = 0;
+			for (int i = 0; i < SIZE_OF_ARRAY; i++)
+			{
+				sum += number[i];
+			}
+			return sum;
+		}
 		int SumaPodziel3()
 		{
-			if (number[0] % 3 == 0 )
+			int sum = 0;
+			for (int i = 0; i < SIZE_OF_ARRAY; i++)
 			{
-				return number[0];
+				if (sum % 3 == 0)
+					sum += number[i];
 			}
-			if (number[1] % 3 == 0)
+			return sum;
+		}
+		void ShowNumbers()
+		{
+			for (int i = 0; i < SIZE_OF_ARRAY; i++)
 			{
-				return number[1];
+				std::cout << number[i] << "\n";
 			}
-			if (number[2] % 3 == 0)
+		}
+		void ShowNumbers(int lowIndex, int highIndex)
+		{
+			std::cout << "\n";
+			for (int i = lowIndex; i <= highIndex; i++)
 			{
-				return number[2];
+				std::cout << number[i] << "\n";
 			}
-			
+		}
+	};
 
-			
-			cout << number[0] + number[1] + number[2];
+	class Osoba
+	{
+	private: string name;
+		   string lastname;
+		   int age;
+	public:
+		Osoba()
+		{
+			name = "monika";
+			lastname = "Kowal";
+			age = 25;
 		};
+		void wypisz()
+		{
+			cout << "imie: " << name << "  Nazwisko: " << lastname << "  wiek: " << age << "\n";
+		}
+		
 	};
 
 
-	int main()
+	class Ksiazka
 	{
-		cout << "Zadanie 1" << "\n" << "\n" << "\n";
+	private: string title;
+		   string	date;
+		   Osoba author;
+	public:
+
+			   
+	};
+
+
+		int main()
+		{
+			cout << "Zadanie 1" << "\n" << "\n" << "\n";
+
+			licz operations(10);
+
+
+			cout << "dodawanie wynosi: " << operations.Dodaj(64) << "\n";
+			cout << "odejmowanie wynosi: " << operations.odejmij(7) << "\n";
+
+
+			cout << "\n";
+
+
+			licz operations2;
+
+			cout << "dodawanie wynosi: " << operations2.Dodaj(65) << "\n";
+			cout << "odejmowanie wynosi: " << operations2.odejmij(8) << "\n";
+
+			cout << "Zadanie 2" << "\n" << "\n" << "\n";
 			
-		licz operations(10);
+			Sumator secondOperations;
+			std::cout << secondOperations.Suma() << "\n";
+			std::cout << secondOperations.SumaPodziel3() << "\n";
+			secondOperations.ShowNumbers();
+			std::cout << "\n";
+			Sumator secondOperations2(20);
+			secondOperations2.Suma();
+			secondOperations2.SumaPodziel3();
+			secondOperations2.ShowNumbers();
 
 
-		cout << "dodawanie wynosi: " << operations.Dodaj(64) << "\n";
-		cout << "odejmowanie wynosi: " << operations.odejmij(7) << "\n";
-	
-
-		cout << "\n";
-		
-		
-		licz operations2;
-
-		cout << "dodawanie wynosi: " << operations2.Dodaj(65) << "\n";
-		cout << "odejmowanie wynosi: " << operations2.odejmij(8) << "\n";
+			cout << "Zadanie 3" << "\n" << "\n" << "\n";
 
 
-		
+			Osoba thirdOperations;
+			thirdOperations.wypisz();
 
-	}
+		}
