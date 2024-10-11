@@ -6,4 +6,4 @@ secondPoint = firstPoint;
 secondPoint.x = 6;
 secondPoint.y = 99;
 Console.WriteLine(firstPoint.x);
-Console.WriteLine(secondPoint.x);
+Console.WriteLine(secondPoint.x); 
