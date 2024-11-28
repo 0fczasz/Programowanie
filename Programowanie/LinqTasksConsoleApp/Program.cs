@@ -9,30 +9,6 @@ var tasks = new List<TaskItem>
     new TaskItem(5, "Exercise", true)
 };
 
-/*
-var tasks = new List<TaskItem>();
-tasks.Add(new TaskItem(1, "Buy groceries", true));
-tasks.Add(new TaskItem(2, "Clean the house", false));
-//itd.
-*/
-
-
-
-
-
-
-//Zadanie 7: Zadania pogrupowane według stanu zakończenia, a następnie posortowane w grupach według nazwy
-
-//Zadanie 8: Najkrótsza nazwa zadania niezakończonego
-
-//Zadanie 9: Ilość liter w nazwach wszystkich zakończonych zadań
-
-
-
-
-//Zadanie 10: Lista zadań z indeksami (zakończone zadania z numeracją)
-
-
 
 // Zadanie 1: Wyszukaj wszystkie zakończone zadania
 
@@ -86,5 +62,30 @@ foreach (var task in onlyNames)
  * 
  */
 Console.WriteLine("\nzadanie szoste ej\n");
-var sortedNamesOfTasks =  tasks.Where(p => p.IsCompleted == true);
-var lOfSortedByNames = sortedNamesOfTasks.OrderBy(p => p.Name);
+var sortedNamesOfTasks =  tasks.Where(p => p.IsCompleted == true).OrderBy(p => p.Name.Length).Select(p => p.Name);
+foreach(var name in sortedNamesOfTasks)
+    { Console.WriteLine(name); }
+
+
+//Zadanie 7: Zadania pogrupowane według stanu zakończenia, a następnie posortowane w grupach według nazwy
+Console.WriteLine("\nzadanie siodme ej\n");
+var sortedEndingSortedname = tasks.OrderBy(p => p.IsCompleted == true).ThenBy(p => p.Name);
+foreach (var task in sortedEndingSortedname)
+{
+    Console.WriteLine(task);
+}
+
+//Zadanie 8: Najkrótsza nazwa zadania niezakończonego
+Console.WriteLine("\nzadanie osme ej\n");
+var unendedSmalestName = tasks.Where(p => p.IsCompleted == false).OrderBy(p => p.Name.Length).Select(p  => p.Name).FirstOrDefault();
+Console.WriteLine(unendedSmalestName);
+
+
+//Zadanie 9: Ilość liter w nazwach wszystkich zakończonych zadań
+Console.WriteLine("\nzadanie dziewiate ej\n");
+var letterAmountOfEndedTasks = tasks.Where(p => p.IsCompleted == true).Select(p => p.Name.Length).Sum();
+    Console.WriteLine(letterAmountOfEndedTasks);
+//Zadanie 10: Lista zadań z indeksami (zakończone zadania z numeracją)
+
+Console.WriteLine("\nzadanie dziewiate ej\n");
+var listOfTasksWithIndex = tasks.Where(p => p.IsCompleted == true);
