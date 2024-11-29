@@ -1,4 +1,5 @@
 ﻿using LinqTasksConsoleApp;
+using System.Net.Http.Headers;
 
 var tasks = new List<TaskItem>
 {
@@ -87,5 +88,49 @@ var letterAmountOfEndedTasks = tasks.Where(p => p.IsCompleted == true).Select(p 
     Console.WriteLine(letterAmountOfEndedTasks);
 //Zadanie 10: Lista zadań z indeksami (zakończone zadania z numeracją)
 
-Console.WriteLine("\nzadanie dziewiate ej\n");
-var listOfTasksWithIndex = tasks.Where(p => p.IsCompleted == true);
+Console.WriteLine("\nzadanie dziesiate ej\n");
+var listOfTasksWithIndex = tasks.Where(p => p.IsCompleted == true).Select((t, index) => new { Index = index + 1, Task = t });
+foreach(var task in listOfTasksWithIndex)
+    { Console.WriteLine(task.Index);
+    Console.WriteLine(task.Task);
+}
+
+//Zadanie 11: Zadania z najdłuższą nazwą w każdej grupie zakończonych i niezakończonych
+Console.WriteLine("\nzadanie jedenaste ej\n");
+var endTasksWithStrongestName = tasks.Where(p => p.IsCompleted == true).OrderByDescending( p => p.Name.Length).Select( p => p.Name).FirstOrDefault();
+var notEndTasksWithStrongestName = tasks.Where(p => !p.IsCompleted).OrderByDescending(p => p.Name.Length).Select(p => p.Name).FirstOrDefault(); ;
+Console.WriteLine(endTasksWithStrongestName);
+Console.WriteLine(notEndTasksWithStrongestName);
+
+
+//Zadanie 12: Zlicz, ile zadań w każdej grupie zawiera słowo „the” w nazwie
+
+Console.WriteLine("\nzadanie dwunaste ej\n");
+
+var countTheInTasks = tasks.GroupBy(p => p.IsCompleted).Select(g =>
+new { GroupValue = g.Key, Count = g.Where(t => t.Name.Contains("the")).Count() });
+foreach (var count in countTheInTasks)
+{
+    Console.WriteLine(count);
+}
+
+
+//Zadanie 13: Utwórz listę zakończonych zadań z ich numeracją oraz długością nazw
+
+Console.WriteLine("\nzadanie trzynaste ej\n");
+var listOfEndedTasksWithNumbers = tasks.Where(p => p.IsCompleted).Select((p, index) =>
+new { IndexNumber = index + 1, Write = p.Name, Numbername = p.Name.Length });
+
+foreach (var task in listOfEndedTasksWithNumbers)
+{
+    Console.WriteLine(task.IndexNumber);
+    Console.WriteLine(task.Write);
+    Console.WriteLine(task.Numbername);
+}
+
+
+
+
+//Zadanie 14: Zadania posortowane według stanu zakończenia, a następnie alfabetycznie według nazw
+Console.WriteLine("\nzadanie czternaste ej\n");
+
