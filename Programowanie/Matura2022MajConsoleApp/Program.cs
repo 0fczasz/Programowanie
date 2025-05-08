@@ -10,48 +10,63 @@ while ((strNumberFromFile = streamReader.ReadLine()) != null)
 
 streamReader.Close();
 
-//zadanie 4.1
-int counter4_1 = strNumbers.Where(s => s[0] == s[s.Length - 1]).Count();
-string firstNumber4_1 = strNumbers.First(s => s[0] == s[s.Length - 1]);
-Console.WriteLine($"{counter4_1} {firstNumber4_1}");
+Console.WriteLine("Zdanie 4.1:");
 
-//zadanie 4.2
-int maxCountPrimeFactors = 0;
-string maxNumberPrimeFactors = "";
+var reverseDovidedBy17 = strNumbers
+    .Where(s => int.Parse(string.Join("", s.Reverse())) % 17 == 0)
+    .Select(s => string.Join("", s.Reverse()));
 
-int maxCountDifferentPrimeFactors = 0;
-string maxNumberDifferentPrimeFactors = "";
-foreach (string strNumber in strNumbers)
+foreach (var strNumber in reverseDovidedBy17)
+    Console.WriteLine(strNumber);
+
+
+Console.WriteLine("Zdanie 4.2:");
+
+string strMaxNumber = "";
+int maxDiff = int.MinValue;
+foreach (var strNumber in strNumbers)
 {
-    //Console.WriteLine(strNumber);
-    int number = int.Parse(strNumber);
-    int div = 2;
-
-    List<int> primeFactors = new List<int>();
-    while (number != 1)
+    int dif = Math.Abs(int.Parse(strNumber) - int.Parse(string.Join("", strNumber.Reverse())));
+    if (dif > maxDiff)
     {
-        if (number % div == 0)
-        {
-            //Console.Write($"{div}, ");
-            primeFactors.Add(div);
-            number = number / div;
-        }
-        else
-            div++;
+        maxDiff = dif;
+        strMaxNumber = strNumber;
     }
-
-    if (primeFactors.Count() > maxCountPrimeFactors)
-    {
-        maxCountPrimeFactors = primeFactors.Count();
-        maxNumberPrimeFactors = strNumber;
-    }
-
-    if (primeFactors.Distinct().Count() > maxCountDifferentPrimeFactors)
-    {
-        maxCountDifferentPrimeFactors = primeFactors.Distinct().Count();
-        maxNumberDifferentPrimeFactors = strNumber;
-    }
-
-    //Console.WriteLine();
 }
-Console.WriteLine($"Zadanie 4.2 {maxNumberPrimeFactors} {maxCountPrimeFactors} {maxNumberDifferentPrimeFactors} {maxCountDifferentPrimeFactors}");
+
+Console.WriteLine($"{strMaxNumber} {maxDiff}");
+
+strMaxNumber = strNumbers.OrderBy(s => Math.Abs(int.Parse(s) - int.Parse(string.Join("", s.Reverse())))).Last();
+maxDiff = Math.Abs(int.Parse(strMaxNumber) - int.Parse(string.Join("", strMaxNumber.Reverse())));
+
+Console.WriteLine($"{strMaxNumber} {maxDiff}");
+
+Console.WriteLine(" 4.3 ");
+
+bool primeNumber(int number)
+{
+    if (number < 2) return false;
+    for (int i = 2; i * i <= number; i++)
+    {
+        if (number % i == 0) return false;
+    }
+    return true;
+}
+var reverse = strNumbers.Where(s => { int number = int.Parse(s); int reversedNumber = int.Parse(string.Join("", s.Reverse())); return primeNumber(number) && primeNumber(reversedNumber); });
+
+foreach (var strNumber in reverse)
+{
+    Console.WriteLine(strNumber);
+}
+
+
+Console.WriteLine(" 4.4 ");
+
+var group = strNumbers.GroupBy(s => s).ToList();
+
+int  different = group.Count();
+int twoX = group.Count(g => g.Count() == 2);
+int threeX = group.Count(g => g.Count() == 3);
+
+
+Console.WriteLine($" {different} {twoX} {threeX}");
