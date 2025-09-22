@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Egzamin2021_06_MauiApp.MainPage"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label Text="Rejestruj konto"
+                    BackgroundColor="Teal"
+                   TextColor="White"
+                   FontSize="Large"                 
+                   />
+            
+            <Label Text="Podaj e-mail: "/>
+            <Entry Placeholder="email"
+                   Text="{Binding Email}"
+                   />
+
+            <Label Text="Podaj hasło: "/>
+            <Entry IsPassword="True"
+                   Text="{Binding Haslo1}"/>
+
+            <Label Text="Powtórz hasło: "/>
+            <Entry IsPassword="True"
+                   Text="{Binding Haslo2}"/>
+
+            <Button Clicked="Button_Clicked" 
+                    HorizontalOptions="Center"
+                    Text="ZATWIERDŹ"/>
+
+            <Label Text="{Binding Wynik}"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
