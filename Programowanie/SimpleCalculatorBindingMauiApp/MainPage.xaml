@@ -14,7 +14,8 @@
             <Entry Text="{Binding SecondNumber, Source={x:Reference thisPage}}"/>
             <Button Text="Oblicz" Clicked="Button_Clicked"/>
 
-            <Label Text="{Binding Resoult, Source={x:Reference thisPage}}"/>
+            <Label Text="{Binding Resoult, Source={x:Reference thisPage}}"
+                   HorizontalOptions="Center"   />
 
         </VerticalStackLayout>
     </ScrollView>

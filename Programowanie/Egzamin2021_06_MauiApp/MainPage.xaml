@@ -32,7 +32,8 @@
                     HorizontalOptions="Center"
                     Text="ZATWIERDŹ"/>
 
-            <Label Text="{Binding Wynik}"/>
+            <Label Text="{Binding Wynik}"
+                   HorizontalOptions="Center"/>
 
 
         </VerticalStackLayout>

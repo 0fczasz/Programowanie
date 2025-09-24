@@ -14,7 +14,7 @@ namespace Egzamin2021_06_MauiApp
             InitializeComponent();
         }
 
-        private string wynik;
+        private string wynik = "Autor: 00000000000";
 
         public string Wynik
         {
