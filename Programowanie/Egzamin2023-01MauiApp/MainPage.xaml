@@ -79,9 +79,9 @@
                         ColumnDefinitions="auto,*"
                         ColumnSpacing="10"
                         Padding="0, 10,10,0">
-                            <Label Text="Ile znaków?"
+                        <Label Text="Ile znaków?"
                                    Grid.Column="0"/>
-                            <Entry  Text="{Binding HowManyChar}"
+                        <Entry  Text="{Binding HowManyChar}"
                                 Grid.Column="1"
                                 BackgroundColor="white"/>
                         </Grid>
