@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoMauiApp.MainPage"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}"
+             xmlns:converters ="clr-namespace:ToDoMauiApp.Converters">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <ContentPage.Resources>
+        <converters:GreenOrRedColorConverter x:Key="GreenOrRedColorConverter"/>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <StackLayout >
+            <CollectionView ItemsSource="{Binding TasksToDos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10"
+                                     >
+                            <Label Text="{Binding Title}"  FontSize="25"
+                                   TextColor="{Binding IsCompleted, Converter={x:StaticResource GreenOrRedColorConverter}}"/>
+                            
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
