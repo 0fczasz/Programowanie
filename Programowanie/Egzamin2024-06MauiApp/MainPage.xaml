@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Egzamin2024_06MauiApp.MainPage"
+             x:Name="thisPage"
+             BindingContext="{x:Reference thisPage}"
+             xmlns:converter ="clr-namespace:Egzamin2024_06MauiApp.Converters">
+
+    <ContentPage.Resources>
+        <converter:CubeImages x:Key="CubeImage"/>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout
+            Orientation="Vertical"
+            Background="Beige">
+            <Label
+            Text="Gra w kości. Autor 12345678901"
+                Background="Brown"
+                TextColor="white"
+                FontSize="Large"
+                Margin="0,9,0,9"
+                />
+
+            <Button
+                Text="RZUĆ KOŚĆMI"
+                BackgroundColor="Chocolate"
+                TextColor="White"
+                HorizontalOptions="Center"
+                Margin="0,9,0,9"
+                Clicked="Throw_Cubes"/>
+
+            <HorizontalStackLayout
+                BackgroundColor="White">
+                <CollectionView ItemsSource="{Binding Cubes}"
+                                ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
+                                Source="{Binding Converter= {x:StaticResource CubeImage}}"
+                                HeightRequest="100"
+                                Margin="10,5,10,30"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="{Binding ResoultOfThisDraw, StringFormat='Wynik tego losowania: {0}'}"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,9,0,9"/>
+
+                <Label Text="{Binding TotalPoints, StringFormat='Wynik gry: {0}'}"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,9,0,9"/>
+
+                <Button Text="RESETUJ WYNIK"
+                    BackgroundColor="Chocolate"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    Margin="0,9,0,9"
+                    Clicked="Reset_Points" />
+
+            </HorizontalStackLayout>
+
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
