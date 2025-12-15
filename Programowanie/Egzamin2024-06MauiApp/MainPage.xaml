@@ -43,25 +43,26 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <Label Text="{Binding ResoultOfThisDraw, StringFormat='Wynik tego losowania: {0}'}"
-                   HorizontalOptions="Center"
-                   TextColor="Black"
-                   Margin="0,9,0,9"/>
-
-                <Label Text="{Binding TotalPoints, StringFormat='Wynik gry: {0}'}"
-                   HorizontalOptions="Center"
-                   TextColor="Black"
-                   Margin="0,9,0,9"/>
-
-                <Button Text="RESETUJ WYNIK"
-                    BackgroundColor="Chocolate"
-                    TextColor="White"
-                    HorizontalOptions="Center"
-                    Margin="0,9,0,9"
-                    Clicked="Reset_Points" />
+          
+                
 
             </HorizontalStackLayout>
+            <Label Text="{Binding ResoultOfThisDraw, StringFormat='Wynik tego losowania: {0}'}"
+         HorizontalOptions="Center"
+         TextColor="Black"
+         Margin="0,9,0,9"/>
 
+            <Label Text="{Binding TotalPoints, StringFormat='Wynik gry: {0}'}"
+         HorizontalOptions="Center"
+         TextColor="Black"
+         Margin="0,9,0,9"/>
+
+            <Button Text="RESETUJ WYNIK"
+    BackgroundColor="Chocolate"
+    TextColor="White"
+    HorizontalOptions="Center"
+    Margin="0,9,0,9"
+    Clicked="Reset_Points" />
 
         </StackLayout>
     </ScrollView>
