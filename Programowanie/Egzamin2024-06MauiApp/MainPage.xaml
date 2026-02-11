@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Egzamin2024_06MauiApp.MainPage"
              x:Name="thisPage"
-             BindingContext="{x:Reference thisPage}"
-             xmlns:converter ="clr-namespace:Egzamin2024_06MauiApp.Converters">
+             xmlns:converter ="clr-namespace:Egzamin2024_06MauiApp.Converters"
+             xmlns:local ="clr-namespace:Egzamin2024_06MauiApp">
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <converter:CubeImages x:Key="CubeImage"/>
@@ -28,7 +31,7 @@
                 TextColor="White"
                 HorizontalOptions="Center"
                 Margin="0,9,0,9"
-                Clicked="Throw_Cubes"/>
+                Command="{Binding Throw_Cubes}"/>
 
             <HorizontalStackLayout
                 BackgroundColor="White">
@@ -62,7 +65,7 @@
     TextColor="White"
     HorizontalOptions="Center"
     Margin="0,9,0,9"
-    Clicked="Reset_Points" />
+    Command="{Binding Reset_Points}" />
 
         </StackLayout>
     </ScrollView>
