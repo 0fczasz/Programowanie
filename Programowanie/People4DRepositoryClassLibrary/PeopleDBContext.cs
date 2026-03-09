@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using People4DRepositoryClassLibrary.Models;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
+using System;
+using System.Collections.Generic;
 
-namespace People4DRepositoryClassLibrary;
+namespace People4DRepositiryClassLibrary;
 
 public partial class PeopleDBContext : DbContext
 {
@@ -33,7 +33,7 @@ public partial class PeopleDBContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("person");
+            entity.ToTable("people");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.Age).HasColumnType("int(11)");
