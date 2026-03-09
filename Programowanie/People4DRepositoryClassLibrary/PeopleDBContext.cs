@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using People4DRepositoryClassLibrary.Models;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
-using System;
-using System.Collections.Generic;
 
-namespace People4DRepositiryClassLibrary;
+namespace People4DRepositoryClassLibrary;
 
 public partial class PeopleDBContext : DbContext
 {
@@ -16,6 +16,8 @@ public partial class PeopleDBContext : DbContext
         : base(options)
     {
     }
+
+    public virtual DbSet<Address> Addresses { get; set; }
 
     public virtual DbSet<Person> People { get; set; }
 
@@ -29,16 +31,16 @@ public partial class PeopleDBContext : DbContext
             .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
 
+        modelBuilder.Entity<Address>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+        });
+
         modelBuilder.Entity<Person>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("people");
-
-            entity.Property(e => e.Id).HasColumnType("int(11)");
-            entity.Property(e => e.Age).HasColumnType("int(11)");
-            entity.Property(e => e.Name).HasMaxLength(100);
-            entity.Property(e => e.Surname).HasMaxLength(100);
+            entity.HasOne(d => d.Address).WithMany(p => p.People).HasConstraintName("FK_People_Addresses");
         });
 
         OnModelCreatingPartial(modelBuilder);
