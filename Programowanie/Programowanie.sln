@@ -109,7 +109,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "quiz", "quiz", "{4D084EC9-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizMauiApp", "QuizMauiApp\QuizMauiApp.csproj", "{87B4A7FE-5658-4847-A121-3223051E174B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizRepozytoryClassLibrary", "QuizClassLibrary\QuizRepozytoryClassLibrary.csproj", "{A0CE332B-5C10-4912-9FD7-AF3C259F9BC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizClassLibrary", "QuizClassLibrary\QuizClassLibrary.csproj", "{A0CE332B-5C10-4912-9FD7-AF3C259F9BC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

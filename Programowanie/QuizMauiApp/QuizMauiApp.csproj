@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\QuizClassLibrary\QuizRepozytoryClassLibrary.csproj" />
+	  <ProjectReference Include="..\QuizClassLibrary\QuizClassLibrary.csproj" />
 	</ItemGroup>
 
 </Project>
